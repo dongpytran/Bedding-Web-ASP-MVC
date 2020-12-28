@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <!--Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <!--Css-->
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/css/elegant-icons.css" rel="stylesheet" />
+    <link href="~/Content/css/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/Content/css/magnific-popup.css" rel="stylesheet" />
+    <link href="~/Content/css/owl.carousel.min.css" rel="stylesheet" />
+    <link href="~/Content/css/slicknav.min.css" rel="stylesheet" />
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__close">+</div>
+        <ul class="offcanvas__widget">
+            @Html.Action("KhachHangNow", "KhachHang")
+        </ul>
+        <div class="offcanvas__logo">
+            <a href="@Url.Action("Index", "KhachHang")"><img src="/Content/img/sleep.png" alt=""></a>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="offcanvas__auth header__right">
+            
+        </div>
+    </div>
+    <!-- Offcanvas Menu End -->
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-3 col-lg-2">
+                    <div class="header__logo">
+                        <a href="@Url.Action("Index", "KhachHang")"><img src="/Content/img/sleep.png" alt=""></a>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-7">
+                    <nav class="header__menu">
+                        <ul>
+                            <li class="active"><a href="@Url.Action("Index", "KhachHang")">TRANG CHỦ</a></li>
+                            <li><a href="@Url.Action("Category", "Product")">SẢN PHẨM</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">GIỚI THIỆU</a></li>
+                            <li><a href="#">LIÊN HỆ</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3">
+                    <div class="header__right">
+                        @Html.Action("KhachHangNow", "KhachHang")
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="canvas__open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Header Section End -->
+    <!--RENDER BODY HERE BITCH-->
+
+    @RenderBody()
+
+    <!--END RENDER BODY-->
+    <!-- Instagram Begin -->
+    <div class="instagram">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-2 col-md-4 col-sm-4 p-0">
+                    <div class="instagram__item set-bg" data-setbg="/Content/img/instagram/i1.jpg">
+                        <div class="instagram__text">
+                            <i class="fa fa-instagram"></i>
+                            <a href="#">diamond_sleep</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-4 p-0">
+                    <div class="instagram__item set-bg" data-setbg="/Content/img/instagram/i4.jpg">
+                        <div class="instagram__text">
+                            <i class="fa fa-instagram"></i>
+                            <a href="#">diamond_sleep</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-4 p-0">
+                    <div class="instagram__item set-bg" data-setbg="/Content/img/instagram/i3.jpg">
+                        <div class="instagram__text">
+                            <i class="fa fa-instagram"></i>
+                            <a href="#">diamond_sleep</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-4 p-0">
+                    <div class="instagram__item set-bg" data-setbg="/Content/img/instagram/i2.jpg">
+                        <div class="instagram__text">
+                            <i class="fa fa-instagram"></i>
+                            <a href="#">diamond_sleep</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-4 p-0">
+                    <div class="instagram__item set-bg" data-setbg="/Content/img/instagram/i5.jpg">
+                        <div class="instagram__text">
+                            <i class="fa fa-instagram"></i>
+                            <a href="#">diamond_sleep</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-4 p-0">
+                    <div class="instagram__item set-bg" data-setbg="/Content/img/instagram/i6.jpg">
+                        <div class="instagram__text">
+                            <i class="fa fa-instagram"></i>
+                            <a href="#">diamond_sleep</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Instagram End -->
+    <!-- Footer Section Begin -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-7">
+                    <div class="footer__about">
+                        <div class="footer__logo">
+                            <a href="@Url.Action("Index", "KhachHang")"><img src="/Content/img/sleep.png" alt=""></a>
+                        </div>
+                        <p>
+                            Điểm tựa vững chắc cho giấc ngủ của bạn!
+                        </p>
+                        <div class="footer__payment">
+                            <a href="#"><img src="/Content/img/payment/payment-1.png" alt=""></a>
+                            <a href="#"><img src="/Content/img/payment/payment-2.png" alt=""></a>
+                            <a href="#"><img src="/Content/img/payment/payment-3.png" alt=""></a>
+                            <a href="#"><img src="/Content/img/payment/payment-4.png" alt=""></a>
+                            <a href="#"><img src="/Content/img/payment/payment-5.png" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-5">
+                    <div class="footer__widget">
+                        <h6>Về chúng tôi</h6>
+                        <ul>
+                            <li><a href="#">Giới thiệu</a></li>
+                            <li><a href="#">Blogs</a></li>
+                            <li><a href="#">Liên hệ</a></li>
+                            <li><a href="#">FAQ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-4">
+                    <div class="footer__widget">
+                        <h6>Tài khoản</h6>
+                        <ul>
+                            <li><a href="#">Thông tin</a></li>
+                            <li><a href="#">Giỏ hàng</a></li>
+                            <li><a href="#">Lịch sử hóa đơn</a></li>
+                            <li><a href="#">Yêu thích</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-8 col-sm-8">
+                    <div class="footer__newslatter">
+                        <h6>ĐĂNG KÝ NHẬN KHUYẾN MÃI</h6>
+                        <form action="#">
+                            <input type="text" placeholder="Email">
+                            <button type="submit" class="site-btn">ĐĂNG KÝ</button>
+                        </form>
+                        <div class="footer__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-youtube-play"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer__copyright__text">
+                        <p>
+                            Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script> All rights reserved | Developed by <a href="https://trandongpy.tk" target="_blank">TranDongPy</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+    <!-- Search Begin -->
+    <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch">+</div>
+            <form class="search-model-form" action="/Product/Search" method="post">
+                <input type="text" id="search-input" name="txtSearch" placeholder="Search here.....">
+                <input type="submit" value="Search" />
+            </form>
+        </div>
+    </div>
+    <!-- Search End -->
+    <!-- Js Plugins -->
+    <script src="/Content/js/jquery-3.3.1.min.js"></script>
+    <script src="/Content/js/bootstrap.min.js"></script>
+    <script src="/Content/js/jquery.magnific-popup.min.js"></script>
+    <script src="/Content/js/jquery-ui.min.js"></script>
+    <script src="/Content/js/mixitup.min.js"></script>
+    <script src="/Content/js/jquery.countdown.min.js"></script>
+    <script src="/Content/js/jquery.slicknav.js"></script>
+    <script src="/Content/js/owl.carousel.min.js"></script>
+    <script src="/Content/js/jquery.nicescroll.min.js"></script>
+    <script src="/Content/js/main.js"></script>
+    <script type="text/javascript">
+        var currentLocation = location.href;
+        var menuItem = document.querySelectorAll('nav a');
+        var li = document.querySelectorAll('nav li');
+        var menuLength = menuItem.length;
+        for (var i = 0; i < menuLength; i++) {
+            if (menuItem[i].href === currentLocation) {
+                li[i].className = "active"
+            } else {
+                li[i].className= ""
+            }
+        }
+    </script>
+</body>
+</html>

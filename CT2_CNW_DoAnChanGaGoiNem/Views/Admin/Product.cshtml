@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Product";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<ul class="nav nav-tabs">
+    <li class="options__link"><a class="nav-link active" data-toggle="tab" href="#firstTab">View All</a></li>
+    <li class="options__link"><a class="nav-link" data-toggle="tab" href="#secondTab">Add New</a></li>
+</ul>
+<div class="tab-content">
+    <div id="firstTab" class="tab-pane active">@Html.Action("Products", "Admin")</div>
+    <div id="secondTab" class="tab-pane fade in active">@Html.Action("AddOrEdit", "Admin")</div>
+</div>

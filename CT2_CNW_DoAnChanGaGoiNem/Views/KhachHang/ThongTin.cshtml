@@ -1,0 +1,191 @@
+﻿@using CT2_CNW_DoAnChanGaGoiNem.Models;
+@{
+    ViewBag.Title = "ThongTin";
+    Layout = "~/Views/Shared/_LayoutWeb.cshtml";
+    List<CHITIETHOADON> cthd = ViewBag.cthd as List<CHITIETHOADON>;
+    List<HOADON> hoadon = ViewBag.lhd as List<HOADON>;
+}
+@model KHACHHANG
+@{
+    var s = Model.HOTEN;
+    var firstSpaceIndex = s.IndexOf(" ");
+    var ho = s.Substring(0, firstSpaceIndex);
+    var ten = s.Substring(firstSpaceIndex + 1);   
+}
+@functions{
+    public string getName(string masp) {
+        DataClasses1DataContext db = new DataClasses1DataContext();
+        SANPHAM sp = db.SANPHAMs.Single(s => s.MASANPHAM == masp);
+        return sp.TENSANPHAM.ToString();
+    }
+    public string getImg(string masp)
+    {
+        DataClasses1DataContext db = new DataClasses1DataContext();
+        SANPHAM sp = db.SANPHAMs.Single(s => s.MASANPHAM == masp);
+        return sp.HINHMINHHOA.ToString();
+    }
+    public string getDate(int mahd) {
+        DataClasses1DataContext db = new DataClasses1DataContext();
+        HOADON h = db.HOADONs.Single(hd => hd.MAHD == mahd);
+        return h.NGAYTAO.ToShortDateString();
+    }
+}
+<!-- Breadcrumb Begin -->
+<div class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__links">
+                    <a href="@Url.Action("Index", "KhachHang")"><i class="fa fa-home"></i> Home</a>
+                    <span>Thông tin tài khoản</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+<section class="product-details spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 text-left" style="margin-top: -100px;">
+                <div class="product__details__tab">
+                    <ul class="nav nav-tabs flex-column" role="tablist">
+                        <li class="options__link">
+                            <a class="nav-link active" style="font-weight:600;" data-toggle="tab" href="#tabs-1" role="tab">THÔNG TIN TÀI KHOẢN</a>
+                        </li>
+                        <li class="options__link">
+                            <a class="nav-link" style="font-weight:600;" data-toggle="tab" href="#tabs-2" role="tab">LỊCH SỬ GIAO DỊCH ( @hoadon.Count() )</a>
+                        </li>
+                        <li class="options__link">
+                            <a class="nav-link" style="font-weight:600;" data-toggle="tab" href="#tabs-3" role="tab">BÌNH LUẬN ( 2 )</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9" style="margin-top: -90px;">
+                <div class="product__details__tab">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                            <h6>THÔNG TIN TÀI KHOẢN</h6>
+                            <p style="width:50%; float:left;margin-top:45px;">Username : @Model.USERNAME</p><span style="float:left;font-size:10px;margin-top:45px;"></span><span><img id="imgPreview" src="/Content/img/customers/@Model.HINH" style="width:100px; height:100px; border-radius:50%; float:right;" /></span>
+                            <section class="checkout spad">
+                                <div class="container">
+                                    <form action="/KhachHang/UpdateThongTin" method="post" class="checkout__form mt-5" enctype="multipart/form-data">
+                                        <input type="file" name="fileupload" accept="image/jpeg, image/png" onchange="ShowImagePreview(this,document.getElementById('imgPreview'));" />
+                                        <div class="row mt-3">
+                                            <div class="col-lg-12">
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                                        <div class="checkout__form__input">
+                                                            <p>Họ <span>*</span></p>
+                                                            <input type="text" name="txtHo" value="@ho.ToString()" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                                        <div class="checkout__form__input">
+                                                            <p>Tên <span>*</span></p>
+                                                            <input type="text" name="txtTen" value="@ten.ToString()" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                                        <div class="checkout__form__input">
+                                                            <p>Tên tài khoản <span>*</span></p>
+                                                            <input type="text" name="txtUsername" disabled="disabled" value="@Model.USERNAME" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                                        <div class="checkout__form__input">
+                                                            <p>Số Điện Thoại <span>*</span></p>
+                                                            <input type="text" name="txtPhone" value="@Model.SDT" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                                        <div class="checkout__form__input">
+                                                            <p>Email <span>*</span></p>
+                                                            <input type="text" name="txtEmail" value="@Model.EMAIL" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <div class="checkout__form__input">
+                                                            <p>Quê quán <span>*</span></p>
+                                                            <input type="text" name="txtQueQuan" value="@Model.QUEQUAN" />
+                                                        </div>
+                                                        <div class="checkout__form__input">
+                                                            <p>Thành Phố <span>*</span></p>
+                                                            <input type="text" name="txtCity" value="@Model.THANHPHO" />
+                                                        </div>
+                                                        <div class="checkout__form__input">
+                                                            <p>Địa Chỉ <span>*</span></p>
+                                                            <input type="text" name="txtAddress" value="@Model.DIACHI" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12 text-center"><button type="submit" class="btn btn-danger" id="btnRegister">Cập Nhật</button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="tab-pane" id="tabs-2" role="tabpanel">
+                            <h6>HÓA ĐƠN MUA HÀNG CỦA BẠN ( @hoadon.Count() )</h6>
+                            <div class="col-lg-12">
+                                <div class="shop__cart__table">
+                                    <table>
+                                        <tbody>
+                                            @{
+                                                foreach (HOADON h in hoadon)
+                                                {
+                                                    <tr><td style="font-weight: 600;font-size:12px;color:#1004b0;" colspan="4">MÃ HĐ : @h.MAHD - <span style="font-weight: 600; font-size: 12px;">NGÀY ĐẶT : @h.NGAYTAO</span></td></tr>
+                                                    foreach (CHITIETHOADON c in cthd)
+                                                    {
+                                                        if (c.MAHD == h.MAHD)
+                                                        {
+                                                            <tr>
+                                                                <td class="cart__product__item">
+                                                                    <img src="/Content/img/products/@getImg(c.MASANPHAM)" alt="" style="width: 80px; height:80px;">
+                                                                    <div class="cart__product__item__title">
+                                                                        <h6>@getName(c.MASANPHAM)</h6>
+                                                                        <div class="rating">
+                                                                            <i class="fa fa-star"></i>
+                                                                            <i class="fa fa-star"></i>
+                                                                            <i class="fa fa-star"></i>
+                                                                            <i class="fa fa-star"></i>
+                                                                            <i class="fa fa-star"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td style="padding-left: 10px;font-size:12.5px;" class="cart__price">@string.Format("{0:#,##0} VND", c.GIA)</td>
+                                                                <td class="cart__quantity">
+                                                                    <p style="padding-left:50px;">@c.SOLUONG</p>
+                                                                </td>
+                                                                <td class="cart__size"><p>@c.KICHTHUOC</p></td>
+                                                                <td style="padding-left:50px;font-size:12.5px;text-align:center;" class="cart__total">@string.Format("{0:#,##0} VND", (c.SOLUONG * c.GIA))</td>
+                                                            </tr>
+                                                        }
+                                                    }
+                                                    <tr><td colspan="5" style="font-size:12px;font-weight:600;color:red;text-align:center;">Tổng : @string.Format("{0:#,##0} VND", (cthd.Where(ps => ps.MAHD == h.MAHD).Sum(op => (op.GIA * op.SOLUONG))))</td></tr>
+                                                }
+                                                
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tabs-3" role="tabpanel">
+                            <h6>BÌNH LUẬN</h6>
+                            <p>
+                                Bình luận 1
+                            </p>
+                            <p>
+                                Bình luận 2
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="~/Content/js/morejs.js"></script>

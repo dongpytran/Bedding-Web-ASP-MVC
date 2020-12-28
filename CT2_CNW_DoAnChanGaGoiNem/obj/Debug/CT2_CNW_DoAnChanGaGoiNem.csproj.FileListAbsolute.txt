@@ -1,0 +1,116 @@
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\CT2_CNW_DoAnChanGaGoiNem.dll.config
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\CT2_CNW_DoAnChanGaGoiNem.dll
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\CT2_CNW_DoAnChanGaGoiNem.pdb
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Antlr3.Runtime.dll
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\EntityFramework.dll
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\EntityFramework.SqlServer.dll
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.AspNet.Identity.Core.dll
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.dll
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.Security.Cookies.dll
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.Security.dll
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.Security.Facebook.dll
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.Security.Google.dll
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.Security.OAuth.dll
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.Security.Twitter.dll
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Web.Infrastructure.dll
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Newtonsoft.Json.dll
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Owin.dll
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\System.Web.Helpers.dll
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\System.Web.Mvc.dll
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\System.Web.Optimization.dll
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\System.Web.Razor.dll
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\System.Web.WebPages.Deployment.dll
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\System.Web.WebPages.dll
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\System.Web.WebPages.Razor.dll
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\WebGrease.dll
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\System.Web.Helpers.xml
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\System.Web.Mvc.xml
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\System.Web.Optimization.xml
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\System.Web.Razor.xml
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\System.Web.WebPages.xml
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\System.Web.WebPages.Deployment.xml
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\System.Web.WebPages.Razor.xml
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Newtonsoft.Json.xml
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Antlr3.Runtime.pdb
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\EntityFramework.xml
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\EntityFramework.SqlServer.xml
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.AspNet.Identity.Core.xml
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.xml
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.Security.xml
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.Security.Facebook.xml
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.Security.Cookies.xml
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.Security.OAuth.xml
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.Security.Google.xml
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.Security.Twitter.xml
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\obj\Debug\CT2_CNW_DoAnChanGaGoiNem.csprojResolveAssemblyReference.cache
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\obj\Debug\CT2_CNW_DoAnChanGaGoiNem.dll
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\obj\Debug\CT2_CNW_DoAnChanGaGoiNem.pdb
+E:\asp mvc\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\System.Data.Linq.dll
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\CT2_CNW_DoAnChanGaGoiNem.dll.config
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\CT2_CNW_DoAnChanGaGoiNem.dll
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\CT2_CNW_DoAnChanGaGoiNem.pdb
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Antlr3.Runtime.dll
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\EntityFramework.dll
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\EntityFramework.SqlServer.dll
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.dll
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.Security.dll
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Newtonsoft.Json.dll
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Owin.dll
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\System.Data.Linq.dll
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\System.Web.Helpers.dll
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\System.Web.Mvc.dll
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\System.Web.Optimization.dll
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\System.Web.Razor.dll
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\System.Web.WebPages.Deployment.dll
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\System.Web.WebPages.dll
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\System.Web.WebPages.Razor.dll
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\WebGrease.dll
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\System.Web.Helpers.xml
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\System.Web.Mvc.xml
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\System.Web.Optimization.xml
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\System.Web.Razor.xml
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\System.Web.WebPages.xml
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\System.Web.WebPages.Deployment.xml
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\System.Web.WebPages.Razor.xml
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Newtonsoft.Json.xml
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Antlr3.Runtime.pdb
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\EntityFramework.xml
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\EntityFramework.SqlServer.xml
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.xml
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.Security.xml
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\obj\Debug\CT2_CNW_DoAnChanGaGoiNem.csprojResolveAssemblyReference.cache
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\obj\Debug\CT2_CNW_DoAnChanGaGoiNem.dll
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\obj\Debug\CT2_CNW_DoAnChanGaGoiNem.pdb
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\PagedList.dll
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\PagedList.Mvc.dll
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\PagedList.xml
+C:\Users\PY\Desktop\CT2_CNW_DoAnChanGaGoiNem\CT2_CNW_DoAnChanGaGoiNem\bin\PagedList.Mvc.xml

@@ -1,0 +1,59 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container">
+    <h2 class="mb-3">DANH SÁCH NGƯỜI DÙNG</h2>
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addModal" onclick="clearTextBox();">Add New</button><br/><br />
+        <table class="table table-borderless table-striped">
+            <thead style="background:#1d1c1c;color:#c8c8c8;">
+                <tr>
+                    <th>
+                        Username
+                    </th>
+                    <th>
+                        Password
+                    </th>
+                    <th>
+                        Full Name
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="ttbody"></tbody>
+        </table>
+    <div class="modal" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Add New</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="username" placeholder="Username" />
+                        </div>
+                        <div class="form-group">
+                            <label for="pass">Password</label>
+                            <input type="text" class="form-control" id="pass" placeholder="Password" />
+                        </div>
+                        <div class="form-group">
+                            <label for="fullname">Full Name</label>
+                            <input type="text" class="form-control" id="fullname" placeholder="Full Name" />
+                        </div>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="btnAdd" onclick="return Add();">Add</button>
+                    <button type="button" class="btn btn-primary" id="btnUpdate" style="display:none;" onclick="return Update();">Update</button>
+                    <button type="button" class="btn btn-danger" id="btnClose" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

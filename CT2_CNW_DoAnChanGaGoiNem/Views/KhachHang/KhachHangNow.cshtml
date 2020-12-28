@@ -1,0 +1,56 @@
+﻿@using CT2_CNW_DoAnChanGaGoiNem.Models;
+@{
+    List<SPTHICH> thich = ViewBag.thich as List<SPTHICH>;
+    ShopCart gh = ViewBag.hang as ShopCart;
+}
+@model KHACHHANG
+@if (Model != null)
+{
+    <div class="header__right__auth">
+        <a href="@Url.Action("ThongTin", "KhachHang", new { username = (Model.USERNAME).Trim()})">Hi, @Model.USERNAME</a>
+        <a>/</a>
+        <a href="@Url.Action("Logout", "KhachHang")">Đăng xuất</a> 
+                            
+                        </div>
+                        
+                        <ul class="header__right__widget">
+                            <li><span class="icon_search search-switch"></span></li>
+                            <li>
+                                <a href="@Url.Action("SanPhamThich", "KhachHang")">
+                                    <span class="icon_heart_alt"></span>
+                                    <div class="tip">@thich.Count()</div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("GioHang", "DatHang")">
+                                    <span class="icon_bag_alt"></span>
+                                    @if (Session["gh"] != null) {
+                                        <div class="tip">@gh.list.Count()</div>
+                                    }
+                                    else {
+                                        <div class="tip">0</div>
+                                    }
+                                </a>
+                            </li>
+                        </ul>
+}
+else {
+    <div class="header__right__auth">
+        <a href="@Url.Action("Signin", "KhachHang")">Đăng nhập</a>
+        <a>/</a>
+        <a href="@Url.Action("Signup", "KhachHang")">Đăng ký</a>
+                            
+    </div>
+    <ul class="header__right__widget">
+        <li><span class="icon_search search-switch"></span></li>
+        <li><a href="@Url.Action("SanPhamThich", "KhachHang")"><span class="icon_heart_alt"></span>
+        <div class="tip">0</div>
+        </a>
+        </li>
+        <li><a href="@Url.Action("GioHang", "DatHang")"><span class="icon_bag_alt"></span>
+            <div class="tip">0</div>
+            </a>
+        </li>
+    </ul>
+    
+}

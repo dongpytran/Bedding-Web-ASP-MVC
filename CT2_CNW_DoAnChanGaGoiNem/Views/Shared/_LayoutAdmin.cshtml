@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <!--Font-->
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/Content/fonts/bootstrap.min.css" rel="stylesheet" media="all" />
+    <link href="~/Content/css/animsition.min.css" rel="stylesheet" media="all" />
+    <!--<link href="~/Content/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all" />
+    <link href="~/Content/css/animate.css" rel="stylesheet" media="all" />
+    <link href="~/Content/css/hamburgers.min.css" rel="stylesheet" media="all" />
+    <link href="~/Content/css/slick.css" rel="stylesheet" media="all" />
+    <link href="~/Content/css/select2.min.css" rel="stylesheet" media="all" />
+    <link href="~/Content/css/perfect-scrollbar.css" rel="stylesheet" media="all" />-->
+    <link href="~/Content/css/theme.css" rel="stylesheet" media="all" />
+    
+</head>
+<body class="animsition">
+    <div class="page-wrapper">
+        <!-- HEADER MOBILE-->
+        <header class="header-mobile d-block d-lg-none">
+            <div class="header-mobile__bar">
+                <div class="container-fluid">
+                    <div class="header-mobile-inner">
+                        <a class="logo" href="index.html">
+                            <img src="/Content/img/sleep.png" alt="CoolAdmin" />
+                        </a>
+                        <button class="hamburger hamburger--slider" type="button">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar-mobile">
+                <div class="container-fluid">
+                    <ul class="navbar-mobile__list list-unstyled">
+                        <li class="has-sub">
+                            <a class="js-arrow" href="@Url.Action("Dashboard", "AdminMenu")">
+                                Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("UserMng", "AdminMenu")">
+                                Users
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index", "AdminMenu")">
+                                Products
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Logout", "AdminMenu")">
+                                Đăng xuất
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- END HEADER MOBILE-->
+        <!-- MENU SIDEBAR-->
+        <aside class="menu-sidebar d-none d-lg-block">
+            <div class="logo">
+                <a href="@Url.Action("Dashboard", "AdminMenu")">
+                    <img src="/Content/img/sleep.png" alt="Cool Admin" />
+                </a>
+            </div>
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
+                        <li class="has-sub">
+                            <a class="js-arrow" href="@Url.Action("Dashboard", "AdminMenu")">
+                                Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("UserMng", "AdminMenu")">
+                                User
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Index", "AdminMenu")">
+                                Products
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Logout", "AdminMenu")">
+                                Đăng xuất
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <!-- END MENU SIDEBAR-->
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+            <!-- HEADER DESKTOP-->
+            <header class="header-desktop">
+                <div class="section__content section__content--p30">
+                </div>
+            </header>
+            <!-- HEADER DESKTOP-->
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                @RenderBody()
+            </div>
+            <!-- END MAIN CONTENT-->
+            <!-- END PAGE CONTAINER-->
+        </div>
+
+    </div>
+
+    <!-- Jquery JS-->
+
+    <script src="~/Content/js/jquery-3.3.1.min.js"></script>
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <script src="~/Content/js/ajaxCrud.js"></script>
+    <!-- Bootstrap JS-->
+    
+    <!-- Vendor JS       -->
+    <script src="~/Content/js/animsition.min.js"></script>
+
+    <!-- Main JS-->
+    <script src="~/Content/js/main2.js"></script>
+    <script src="~/Content/js/admin.script.js"></script>
+    <!--  JS-->
+    <script src="~/Content/js/form-validate.js"></script>
+</body>
+</html>

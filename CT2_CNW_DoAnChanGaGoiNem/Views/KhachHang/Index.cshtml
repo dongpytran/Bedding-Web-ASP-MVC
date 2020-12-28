@@ -1,0 +1,342 @@
+﻿@using CT2_CNW_DoAnChanGaGoiNem.Models;
+@{
+    ViewBag.Title = "Trang Chủ - Diamond Sleep";
+    string noti = ViewBag.dangKyThanhCong;
+    List<LOAI> listCate = ViewBag.categories as List<LOAI>;
+    Layout = "~/Views/Shared/_LayoutWeb.cshtml";
+    List<string> listTrend = ViewBag.trend as List<string>;
+    List<SANPHAM> thich = ViewBag.thich as List<SANPHAM>;
+    List<SANPHAM> gg = ViewBag.spGiamGia as List<SANPHAM>;
+}
+@model List<SANPHAM>
+
+
+@if(Session["tb"] != null)
+{
+    <script type="text/javascript" charset="utf-8">
+            window.onload = function () {
+                alert("@Session["tb"].ToString()");
+            };
+    </script>
+    Session.Remove("tb");
+}
+@if(Session["hd"] != null) {
+    <script type="text/javascript" charset="utf-8">
+        function CustomAlert() {
+            this.alert = function (message) {
+                document.body.innerHTML = document.body.innerHTML + '<div id="dialogoverlay"></div><div id="dialogbox" class="slit-in-vertical"><div><div id="dialogboxbody"></div><div id="dialogboxfoot"></div></div></div>';
+
+                let dialogoverlay = document.getElementById('dialogoverlay');
+                let dialogbox = document.getElementById('dialogbox');
+
+                let winH = window.innerHeight;
+                dialogoverlay.style.height = winH + "px";
+
+                dialogbox.style.top = "50px";
+
+                dialogoverlay.style.display = "block";
+                dialogbox.style.display = "block";
+                document.getElementById('dialogboxbody').innerHTML = message;
+                document.getElementById('dialogboxfoot').innerHTML = '<button class="pure-material-button-contained active" onclick="customAlert.ok()">OK</button>';
+            }
+
+            this.ok = function () {
+                document.getElementById('dialogbox').style.display = "none";
+                document.getElementById('dialogoverlay').style.display = "none";
+            }
+        }
+
+            let customAlert = new CustomAlert();
+            window.onload = customAlert.alert('@Session["hd"].ToString()');
+    </script>
+    Session.Remove("hd");
+}
+<!-- Categories Section Begin -->
+<section class="categories">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 p-0">
+                <div class="categories__item categories__large__item set-bg"
+                     data-setbg="/Content/img/categories/salee.png">
+                    <div class="categories__text">
+                        <h4>TOP SẢN PHẨM GIẢM GIÁ</h4><br />
+                        <a href="@Url.Action("Category", "Product", new { sale = "true"})">Shop now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="row">
+                    @foreach (LOAI l in listCate)
+                    {
+                        <div class="col-lg-6 col-md-6 col-sm-6 p-0">
+                            <div class="categories__item set-bg" data-setbg="/Content/img/categories/@l.HINH">
+                                <div class="categories__text">
+                                    <h4>@l.TENLOAI</h4>
+                                    @functions{
+                                        public int countHang(LOAI l) {
+                                            DataClasses1DataContext d = new DataClasses1DataContext();
+                                            string sl = d.SANPHAMs.Where(s => s.MALOAI == l.MALOAI).Count().ToString();
+                                            return (int.Parse(sl));
+                                        }
+                                    }
+                                    <p>@countHang(l) sản phẩm</p>
+                                    <a href="@Url.Action("Category", "Product", new { maloai = l.MALOAI })">Shop now</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Categories Section End -->
+<!-- Product Section Begin -->
+<section class="product spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4">
+                <div class="section-title">
+                    <h4>SẢN PHẨM MỚI</h4>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-8">
+                <ul class="filter__controls">
+                    <li class="active" data-filter="*">All</li>
+                    @foreach (LOAI l in listCate)
+                    {
+                        <li data-filter=".@l.MALOAI"><a>@l.TENLOAI</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <!--NEW PRODUCT-->
+        <div class="row property__gallery">
+            @foreach (SANPHAM s in Model)
+            {
+                    <div class="col-lg-3 col-md-4 col-sm-6 mix @s.MALOAI">
+                        <div class="product__item">
+                        
+                                <div class="product__item__pic set-bg" data-setbg="/Content/img/products/@s.HINHMINHHOA">
+                                    <div class="label new">New</div>
+                                    @if (s.GIAM != 0)
+                                    {
+                                        <div class="labelr sale">- @int.Parse((s.GIAM * 100).ToString()) %</div>
+                                    }
+                                    <ul class="product__hover">
+                                        <li><a href="/Content/img/products/@s.HINHMINHHOA" class="image-popup"><span class="arrow_expand"></span></a></li>
+                                        @if (Session["kh"] != null && thich.Any(t => t.MASANPHAM == s.MASANPHAM)) {
+                                            <li><a href="@Url.Action("AddLoveProduct", "Product", new { masp = s.MASANPHAM})" style="background:red;"><span class=" icon_heart_alt" style="color:#fff;"></span></a></li>
+                                        }
+                                        else {
+                                            <li><a href="@Url.Action("AddLoveProduct", "Product", new { masp = s.MASANPHAM})"><span class="icon_heart_alt"></span></a></li>
+                                        }
+                                        <li><a href="@Url.Action("ProductDetail", "Product", new { masp = s.MASANPHAM})"><span class="icon_bag_alt"></span></a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="product__item__text">
+                                    <h6><a href="@Url.Action("ProductDetail", "Product", new { masp = s.MASANPHAM })">@s.TENSANPHAM</a></h6>
+                                    <div class="rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div style="margin-bottom:10px;">
+                                        @if (s.SLTON == 0) {
+                                            <small style="color:red;">Hết Hàng</small>
+                                        }else{
+                                            <small>Còn : @s.SLTON</small>
+                                        }
+                                    </div>
+                                    @if (s.GIAM != 0)
+                                    {
+                                        <div class="product__price" style="color:red;">@string.Format("{0:#,##0} VND", s.GIABAN) <span>@string.Format("{0:#,##0} VND", s.GIAGOC)</span></div>
+                                    }
+                                    else
+                                    {
+                                        <div class="product__price">@string.Format("{0:#,##0} VND", s.GIAGOC)</div>
+                                    }
+                                </div>
+                        
+                        </div>
+                    </div>
+            }
+            </div>
+            <!--END NEW PRODUCT-->
+        </div>
+</section>
+<!-- Product Section End -->
+<!-- Banner Section Begin -->
+<section class="banner set-bg" data-setbg="/Content/img/banner/BANNER.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-7 col-lg-8 m-auto">
+                <div class="banner__slider owl-carousel">
+                    <div class="banner__item">
+                        <div class="banner__text">
+                            <span>Thiết kế sang trọng, đẳng cấp</span>
+                            <h1>Aeroflow</h1>
+                            <a href="@Url.Action("Category", "Product")">Shop now</a>
+                        </div>
+                    </div>
+                    <div class="banner__item">
+                        <div class="banner__text">
+                            <span>An toàn, tiện lơi</span>
+                            <h1>Amando</h1>
+                            <a href="@Url.Action("Category", "Product")">Shop now</a>
+                        </div>
+                    </div>
+                    <div class="banner__item">
+                        <div class="banner__text">
+                            <span>bền đẹp với thời gian</span>
+                            <h1>Dunlopillo</h1>
+                            <a href="@Url.Action("Category", "Product")">Shop now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Banner Section End -->
+<!-- Trend Section Begin -->
+@functions{
+    public SANPHAM getTrend(string s)
+    {
+        DataClasses1DataContext db = new DataClasses1DataContext();
+        SANPHAM data = db.SANPHAMs.Where(ss => ss.MASANPHAM == s).Single();
+
+        return data;
+    }
+}
+<section class="trend spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="trend__content">
+                    <div class="section-title">
+                        <h4>HOT TREND</h4>
+                    </div>
+                    @if (listTrend != null)
+                    {
+                        foreach (string s in listTrend)
+                        {
+                            SANPHAM sp = getTrend(s);
+                            
+                            <div class="trend__item">
+                                
+                                <div class="trend__item__pic">
+                                    <a href="@Url.Action("ProductDetail", "Product", new { masp = sp.MASANPHAM})"><img style="width:100px;height:100px;" src="/Content/img/products/@sp.HINHMINHHOA" alt=""></a>
+                                </div>
+                                <div class="trend__item__text">
+                                    <a href="@Url.Action("ProductDetail", "Product", new { masp = sp.MASANPHAM})" style="color: #000;">@sp.TENSANPHAM</a>
+                                    <div class="rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product__price">@string.Format("{0:#,##0} VND", sp.GIABAN)</div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="trend__content">
+                    <div class="section-title">
+                        <h4>HOT SALE</h4>
+                    </div>
+                        @foreach (SANPHAM sp in gg)
+                        {
+
+                            <div class="trend__item">
+
+                                <div class="trend__item__pic">
+                                    <a href="@Url.Action("ProductDetail", "Product", new { masp = sp.MASANPHAM})"><img style="width:100px;height:100px;" src="/Content/img/products/@sp.HINHMINHHOA" alt=""></a>
+                                </div>
+                                <div class="trend__item__text">
+                                    <a href="@Url.Action("ProductDetail", "Product", new { masp = sp.MASANPHAM})" style="color:#000;">@sp.TENSANPHAM</a>
+                                    <div class="rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="product__price">@string.Format("{0:#,##0} VND", sp.GIABAN)</div>
+                                </div>
+                            </div>
+                        }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Trend Section End -->
+<!-- Discount Section Begin -->
+<section class="discount">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 p-0">
+                <div class="discount__pic">
+                    <img src="/Content/img/discount/sale.jpg" alt="" style="width:100%;height:390px;">
+                </div>
+            </div>
+            <div class="col-lg-6 p-0">
+                <div class="discount__text">
+                    <div class="discount__text__title">
+                        <span>GIẢM GIÁ</span>
+                        <h2>BLACK FRIDAY</h2>
+                        <h5><span>Sale</span> 50%</h5>
+                    </div>
+                    <a href="@Url.Action("Category", "Product", new { sale = "true"})">Shop now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Discount Section End -->
+<!-- Services Section Begin -->
+<section class="services spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="services__item">
+                    <i class="fa fa-car"></i>
+                    <h6>Miễn phí giao hàng</h6>
+                    <p>Trên 500.000đ</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="services__item">
+                    <i class="fa fa-money"></i>
+                    <h6>Hoàn tiền</h6>
+                    <p>Nếu có vấn đề</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="services__item">
+                    <i class="fa fa-support"></i>
+                    <h6>Hỗ trợ</h6>
+                    <p>Đội ngũ hỗ trợ 24/7</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="services__item">
+                    <i class="fa fa-headphones"></i>
+                    <h6>Thanh toán</h6>
+                    <p>100% bảo mật và an toàn</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section End -->
+

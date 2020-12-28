@@ -1,0 +1,191 @@
+﻿@using CT2_CNW_DoAnChanGaGoiNem.Models;
+@{
+    ViewBag.Title = "Product Detail";
+    Layout = "~/Views/Shared/_LayoutWeb.cshtml";
+    THUONGHIEU t = ViewBag.thuonghieu as THUONGHIEU;
+    List<NEM_KICHTHUOC> kt = ViewBag.kichthuoc as List<NEM_KICHTHUOC>;
+    List<SANPHAM> thich = ViewBag.thich as List<SANPHAM>;
+    List<SANPHAM> related = ViewBag.related as List<SANPHAM>;
+    NEM_DACDIEM dd = ViewBag.dd as NEM_DACDIEM;
+}
+@model SANPHAM
+<!-- Breadcrumb Begin -->
+<div class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__links">
+                    <a href="@Url.Action("Index", "KhachHang")"><i class="fa fa-home"></i> Home</a>
+                    <a href="@Url.Action("Category", "Product")">Shop</a>
+                    <a href="@Url.Action("Category", "Product", new { maloai = Model.MALOAI})">@Model.LOAI.TENLOAI</a>
+                    <a href="@Url.Action("Category", "Product", new { maloai = Model.MALOAI, math = Model.MATHUONGHIEU})">@Model.THUONGHIEU.TENTHUONGHIEU</a>
+                    <span>@Model.TENSANPHAM</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+<!-- Product Details Section Begin -->
+<section class="product-details spad">
+    <div class="container">
+        <form action="/DatHang/ThemMatHang" method="post">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="product__details__pic">
+                    <div class="product__details__pic__left product__thumb nice-scroll">
+                        <a class="pt active" href="#product-1">
+                            <img src="/Content/img/products/@Model.HINHMINHHOA" alt="">
+                        </a>
+                        <a class="pt" href="#product-2">
+                            <img src="/Content/img/products/@Model.HINHMINHHOA" alt="">
+                        </a>
+                        <a class="pt" href="#product-3">
+                            <img src="/Content/img/products/@Model.HINHMINHHOA" alt="">
+                        </a>
+                        <a class="pt" href="#product-4">
+                            <img src="/Content/img/products/@Model.HINHMINHHOA" alt="">
+                        </a>
+                    </div>
+                    <div class="product__details__slider__content">
+                        <div class="product__details__pic__slider owl-carousel">
+                            <img data-hash="product-1" class="product__big__img" src="/Content/img/products/@Model.HINHMINHHOA" alt="">
+                            <img data-hash="product-2" class="product__big__img" src="/Content/img/products/@Model.HINHMINHHOA" alt="">
+                            <img data-hash="product-3" class="product__big__img" src="/Content/img/products/@Model.HINHMINHHOA" alt="">
+                            <img data-hash="product-4" class="product__big__img" src="/Content/img/products/@Model.HINHMINHHOA" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="product__details__text">
+                    <h3>@Model.TENSANPHAM @if (Model.SLTON == 0) {<span style="margin-bottom:20px;color:red;">Hết Hàng</span>}else{<span style="margin-bottom:20px;">Còn : @Model.SLTON</span>} <span>Thương hiệu : @t.TENTHUONGHIEU</span></h3>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <span>( 138 reviews )</span>
+                    </div>
+                    @if (Model.GIAM != 0)
+                    {
+                        <div class="product__details__price" style="color:red;">@string.Format("{0:#,##0} VND", Model.GIABAN) <span>@string.Format("{0:#,##0} VND", Model.GIAGOC)</span></div>
+                    }
+                    else
+                    {
+                        <div class="product__details__price">@string.Format("{0:#,##0} VND", Model.GIAGOC)</div>
+                    }
+                    <div class="product__details__button">
+                        <div class="quantity">
+                            <span>SL :</span>
+                            <div class="pro-qty">
+                                <input type="text" name="txtQuantity" value="1" readonly>
+                            </div>
+                        </div>
+                        @if (Model.SLTON == 0) {
+                            <button type="submit" style="border:none; outline:none; background:#adadad;" class="cart-btn" value="@Model.MASANPHAM" disabled name="masp"><span class="icon_bag_alt"></span> THÊM VÀO GIỎ</button>
+                        }
+                        else {
+                            <button type="submit" style="border:none; outline:none;" class="cart-btn" value="@Model.MASANPHAM" name="masp"><span class="icon_bag_alt"></span> THÊM VÀO GIỎ</button>
+                        }
+                        <ul>
+                            @if (Session["kh"] != null && thich.Any(th => th.MASANPHAM == Model.MASANPHAM)) {
+                                <li><a href="@Url.Action("AddLoveProduct", "Product", new { masp = Model.MASANPHAM})" style="background:red;"><span class="icon_heart_alt" style="color:#fff;"></span></a></li>
+                            }
+                            else {
+                                <li><a href="@Url.Action("AddLoveProduct", "Product", new { masp = Model.MASANPHAM})"><span class="icon_heart_alt"></span></a></li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="product__details__widget">
+                        <ul>
+                            <li>
+                                <p style="font-weight: 600;color:#000;">Kích thước : </p>
+                            <li>
+                                
+                                <div class="size__btn">
+                                    @foreach (NEM_KICHTHUOC n in kt)
+                                    {
+                                        <label for="@n.KICHTHUOC" class="rdo-kt"><input type="radio" name="rdoKichThuoc" id="@n.KICHTHUOC" value="@n.KICHTHUOC" /> @n.KICHTHUOC</label>
+                                    }
+                                    
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="product__details__tab">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Chi tiết &nbsp;-&nbsp; Đặc điểm</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">Bình luận &nbsp;-&nbsp; Đánh giá</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                            @if (ViewBag.dd != null) {
+                                <p>- @dd.DACDIEM01</p>
+                                <p>- @dd.DACDIEM02</p>
+                                <p>- @dd.DACDIEM03</p>
+                            }
+                        </div>
+                        <div class="tab-pane" id="tabs-2" role="tabpanel">
+                            <p>Bình luận 1</p>
+                            <p>Bình luận 2</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="related__title">
+                    <h5>SẢN PHẨM LIÊN QUAN</h5>
+                </div>
+            </div>
+            @foreach (SANPHAM s in related) {
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="product__item">
+                        <div class="product__item__pic set-bg" data-setbg="/Content/img/products/@s.HINHMINHHOA">
+                            @if (s.MOI == 1)
+                            {
+                                <div class="label new">New</div>
+                            }
+                            <ul class="product__hover">
+                                <li><a href="/Content/img/products/@s.HINHMINHHOA" class="image-popup"><span class="arrow_expand"></span></a></li>
+                                <li><a href="@Url.Action("AddLoveProduct", "Product", new { masp = s.MASANPHAM})"><span class="icon_heart_alt"></span></a></li>
+                                <li><a href="@Url.Action("ProductDetail", "Product", new { masp = s.MASANPHAM})"><span class="icon_bag_alt"></span></a></li>
+                            </ul>
+                        </div>
+                        <div class="product__item__text">
+                            <h6><a href="@Url.Action("ProductDetail", "Product", new { masp = s.MASANPHAM})">@s.TENSANPHAM</a></h6>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            @if (s.GIAM != 0)
+                            {
+                                <div class="product__price" style="color:red;">@string.Format("{0:#,##0} VND", s.GIABAN) <span>@string.Format("{0:#,##0} VND", s.GIAGOC)</span></div>
+                            }
+                            else
+                            {
+                                <div class="product__price">@string.Format("{0:#,##0} VND", s.GIAGOC)</div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<!-- Product Details Section End -->
+

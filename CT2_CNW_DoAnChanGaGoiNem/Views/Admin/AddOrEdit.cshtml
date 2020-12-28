@@ -1,0 +1,188 @@
+﻿@using CT2_CNW_DoAnChanGaGoiNem.Models;
+@model CT2_CNW_DoAnChanGaGoiNem.Models.SANPHAM
+@{
+    ViewBag.Title = "AddOrEdit";
+    Layout = null;
+    List<string> kt = ViewBag.kt as List<string>;
+    List<LOAI> loai = ViewBag.loai as List<LOAI>;
+    List<THUONGHIEU> th = ViewBag.th as List<THUONGHIEU>;
+    string img = ViewBag.img;
+    
+    //tao list thuong hieu
+    List<SelectListItem> listThuongHieu = new List<SelectListItem>();
+    foreach (THUONGHIEU t in th) {
+        listThuongHieu.Add(new SelectListItem
+        {
+            Text = t.TENTHUONGHIEU,
+            Value = t.MATHUONGHIEU
+        });
+    }
+    //tao list loai
+    List<SelectListItem> listLoai = new List<SelectListItem>();
+    foreach (LOAI l in loai) {
+        listLoai.Add(new SelectListItem
+        {
+            Text = l.TENLOAI,
+            Value = l.MALOAI
+        });
+    }
+    //tao list giam gia
+    List<SelectListItem> listGiam = new List<SelectListItem>();
+    List<double> item = new List<double>();
+    item.Add(0.01);
+    item.Add(0.02);
+    item.Add(0.03);
+    item.Add(0.04);
+    item.Add(0.05);
+    item.Add(0.06);
+    item.Add(0.07);
+    item.Add(0.08);
+    item.Add(0.09);
+    item.Add(0.1);
+    item.Add(0.15);
+    item.Add(0.2);
+    item.Add(0.25);
+    item.Add(0.3);
+    item.Add(0.35);
+    item.Add(0.4);
+    item.Add(0.45);
+    item.Add(0.5);
+    listGiam.Add(new SelectListItem
+        {
+            Text = "Không giảm",
+            Value = "0"
+        });
+    foreach (double i in item)
+    {
+        listGiam.Add(new SelectListItem
+        {
+            Text = (i*100) + " %",
+            Value = i.ToString()
+        });
+    }
+    //TAO List moi or not
+    List<SelectListItem> listmoi = new List<SelectListItem>();
+    listmoi.Add(new SelectListItem
+    {
+        Text = "Sản phẩm mới",
+        Value = "1"
+    });
+    listmoi.Add(new SelectListItem
+    {
+        Text = "Không",
+        Value = "0"
+    });
+    
+}
+<div class="col-lg-12">
+    <div class="container">
+        <div style="width:50%;margin:0 auto;border:solid 1px #000;padding: 50px; border-radius: 10px;">
+            @using (Html.BeginForm("AddOrEdit", "Admin", FormMethod.Post, new { enctype = "multipart/form-data", onSubmit = "return jQueryAjaxPost(this);", data_restUrl = @Url.Action("AddOrEdit", "Admin") }))
+            {
+
+                @Html.AntiForgeryToken()
+                <div class="row">
+                    <div class="form-horizontal">
+                        <hr />
+                        @Html.ValidationSummary(true)
+                        @Html.HiddenFor(model => model.MASANPHAM)
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.MASANPHAM, new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.MASANPHAM, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.MASANPHAM)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.TENSANPHAM, new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.TENSANPHAM, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.TENSANPHAM)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.MALOAI, new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(model => model.MALOAI, listLoai)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.MATHUONGHIEU, new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(model => model.THUONGHIEU, listThuongHieu)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.GIAGOC, new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.GIAGOC)
+                                @Html.ValidationMessageFor(model => model.GIAGOC)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.HINHMINHHOA, new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @if (img != null) {
+                                    <img src="@Url.Content("/Content/img/products/"+ img)" id="imgPrev" style="width:200px; height: 200px;" />
+                                }
+                                else {
+                                    <img src="@Url.Content("/Content/img/customers/default-avatar.jpg")" id="imgPrev" style="width:200px; height: 200px;" />
+                                }
+                                <input type="file" name="fileupload" accept="image/jpeg, image/png" onchange="ShowImagePreview(this,document.getElementById('imgPrev'));" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.MOI, new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(model => model.MOI, listmoi)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.GIAM, new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownListFor(model => model.GIAM, listGiam)
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.GIABAN, new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.GIABAN, new { @class = "form-control", @readonly = "readonly" })
+                                @Html.ValidationMessageFor(model => model.GIABAN)
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            kich thuoc
+                            <div class="col-md-10">
+                                @{
+                int num = 1;
+                foreach (string s in kt)
+                {
+                    {
+                        string size = "size" + num;
+                        <input type="checkbox" name="@size" value="@s" /> @s
+                    }
+                    num++;
+                }
+                                }
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Save" class="btn btn-default" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

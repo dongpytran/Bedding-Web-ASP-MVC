@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Signin";
+    Layout = "~/Views/Shared/_LayoutWeb.cshtml";
+}
+@if (Request.HttpMethod != "POST")
+{
+    <section class="checkout spad">
+        <h2 style="text-align:center;">Đăng nhập</h2>
+        <div class="login__box">
+            <form action="/KhachHang/Signin" method="post" class="checkout__form">
+                <div class="checkout__form__input"><input type="text" name="txtUsername" placeholder="Tên đăng nhập" /></div>
+                
+                <div class="checkout__form__input"><input type="password" name="txtPassword" placeholder="Mật khẩu" /></div><br />
+                <button type="submit" id="btn__signin">Đăng nhập</button><br />
+                @if (Session["tb"] != null)
+                {
+                    <small id="hasUser" style="color: red;">@Session["tb"].ToString()</small>
+                    Session["tb"] = null;
+                }
+            </form>
+        </div>
+    </section>
+}
+

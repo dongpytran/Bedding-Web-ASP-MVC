@@ -1,0 +1,127 @@
+﻿@using CT2_CNW_DoAnChanGaGoiNem.Models;
+@{
+    ViewBag.Title = "SanPhamThich";
+    Layout = "~/Views/Shared/_LayoutWeb.cshtml";
+    List<SANPHAM> related = ViewBag.related as List<SANPHAM>;
+}
+@model List<SANPHAM>
+<!-- Breadcrumb Begin -->
+<div class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__links">
+                    <a href="@Url.Action("Index", "KhachHang")"><i class="fa fa-home"></i> Home</a>
+                    <span>Sản phẩm yêu thích</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+<section class="product spad">
+    <div class="container">
+        <div class="section-title">
+            <h5>SẢN PHẨM BẠN THÍCH</h5>
+        </div>
+        <div class="row property__gallery">
+            
+            @foreach (SANPHAM s in Model)
+            {
+                <div class="col-lg-3 col-md-4 col-sm-6 mix @s.MALOAI">
+                    <div class="product__item">
+
+                        <div class="product__item__pic set-bg" data-setbg="/Content/img/products/@s.HINHMINHHOA">
+                            @if (s.MOI == 1)
+                            {
+                                <div class="label new">New</div>
+                            }
+                            @if (s.GIAM != 0)
+                            {
+                                <div class="labelr sale">- @int.Parse((s.GIAM * 100).ToString()) %</div>
+                            }
+                            <ul class="product__hover">
+                                <li><a href="/Content/img/products/@s.HINHMINHHOA" class="image-popup"><span class="arrow_expand"></span></a></li>
+                                <li><a href="@Url.Action("AddLoveProduct", "Product", new { masp = s.MASANPHAM})" style="background:red;"><span style="color: #fff;" class="icon_heart_alt"></span></a></li>
+                                <li><a href="@Url.Action("ProductDetail", "Product", new { masp = s.MASANPHAM})"><span class="icon_bag_alt"></span></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="product__item__text">
+                            <h6><a href="@Url.Action("ProductDetail", "Product", new { masp = s.MASANPHAM })">@s.TENSANPHAM</a></h6>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            @if (s.GIAM != 0)
+                            {
+                                <div class="product__price" style="color:red;">@string.Format("{0:#,##0} VND", s.GIABAN) <span>@string.Format("{0:#,##0} VND", s.GIAGOC)</span></div>
+                            }
+                            else
+                            {
+                                <div class="product__price">@string.Format("{0:#,##0} VND", s.GIAGOC)</div>
+                            }
+                        </div>
+
+                    </div>
+                </div>
+            }
+        </div>
+        <br />
+        <div class="section-title">
+            <h5>CÓ THỂ BẠN QUAN TÂM</h5>
+        </div>
+        <div class="row property__gallery">
+
+            @foreach (SANPHAM s in related)
+            {
+                <div class="col-lg-3 col-md-4 col-sm-6 mix @s.MALOAI">
+                    <div class="product__item">
+
+                        <div class="product__item__pic set-bg" data-setbg="/Content/img/products/@s.HINHMINHHOA">
+                            @if (s.MOI == 1)
+                            {
+                                <div class="label new">New</div>
+                            }
+                            @if (s.GIAM != 0)
+                            {
+                                <div class="labelr sale">- @int.Parse((s.GIAM * 100).ToString()) %</div>
+                            }
+                            <ul class="product__hover">
+                                <li><a href="/Content/img/products/@s.HINHMINHHOA" class="image-popup"><span class="arrow_expand"></span></a></li>
+                                <li><a href="@Url.Action("AddLoveProduct", "Product", new { masp = s.MASANPHAM})"><span class="icon_heart_alt"></span></a></li>
+                                <li><a href="@Url.Action("ProductDetail", "Product", new { masp = s.MASANPHAM})"><span class="icon_bag_alt"></span></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="product__item__text">
+                            <h6><a href="@Url.Action("ProductDetail", "Product", new { masp = s.MASANPHAM })">@s.TENSANPHAM</a></h6>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            @if (s.GIAM != 0)
+                            {
+                                <div class="product__price" style="color:red;">@string.Format("{0:#,##0} VND", s.GIABAN) <span>@string.Format("{0:#,##0} VND", s.GIAGOC)</span></div>
+                            }
+                            else
+                            {
+                                <div class="product__price">@string.Format("{0:#,##0} VND", s.GIAGOC)</div>
+                            }
+                        </div>
+
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+
+

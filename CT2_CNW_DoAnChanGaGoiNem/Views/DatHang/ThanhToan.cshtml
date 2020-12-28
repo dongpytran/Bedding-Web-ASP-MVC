@@ -1,0 +1,148 @@
+﻿@using CT2_CNW_DoAnChanGaGoiNem.Models;
+@{
+    ViewBag.Title = "ThanhToan";
+    Layout = "~/Views/Shared/_LayoutWeb.cshtml";
+    KHACHHANG kh = Session["kh"] as KHACHHANG;
+}
+@model ShopCart
+@{
+    var s = kh.HOTEN;
+    var firstSpaceIndex = s.IndexOf(" ");
+    var ho = s.Substring(0, firstSpaceIndex);
+    var ten = s.Substring(firstSpaceIndex + 1);
+}
+<!-- Breadcrumb Begin -->
+<div class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__links">
+                    <a href="@Url.Action("Index", "KhachHang")"><i class="fa fa-home"></i> Home</a>
+                    <a href="@Url.Action("GioHang", "DatHang")">Giỏ Hàng</a>
+                    <span>Giao Hàng</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+<!-- Checkout Section Begin -->
+<section class="checkout spad">
+    <div class="container">
+        <form action="/DatHang/ThanhToan" method="post" class="checkout__form">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h5>Chi Tiết Đơn Hàng</h5>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="checkout__form__input">
+                                <p>Họ <span>*</span></p>
+                                <input type="text" value="@ho" readonly />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="checkout__form__input">
+                                <p>Tên <span>*</span></p>
+                                <input type="text" value="@ten" readonly />
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="checkout__form__input">
+                                <p>Quê quán <span>*</span></p>
+                                <input type="text" value="@kh.QUEQUAN" readonly />
+                            </div>
+                            <div class="checkout__form__input">
+                                <p>Địa Chỉ <span>*</span></p>
+                                <input type="text" value="@kh.DIACHI" readonly />
+                            </div>
+                            <div class="checkout__form__input">
+                                <p>Thành Phố <span>*</span></p>
+                                <input type="text" value="@kh.THANHPHO" readonly />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="checkout__form__input">
+                                <p>Số Điện Thoại <span>*</span></p>
+                                <input type="text" value="@kh.SDT" readonly />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="checkout__form__input">
+                                <p>Email <span>*</span></p>
+                                <input type="text" value="@kh.EMAIL" />
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="checkout__form__input">
+                                <p>Ghi chú :</p>
+                                <input type="text" placeholder="Ghi chú cho sản phẩm, nhân viên giao hàng ..." />
+                            </div>
+                            <div class="checkout__form__input">
+                                <p>Nhập Mật Khẩu <span>*</span></p>
+                                <input type="password" name="txtPassword" />
+                                @if (Session["wrong"] != null) {
+                                    <small style="color:red;">@Session["wrong"].ToString()</small>
+                                    <br /><br />
+                                    Session.Remove("wrong");
+                                }
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="checkout__order">
+                        <h5>Giỏ Hàng</h5>
+                        <div class="checkout__order__product">
+                            <ul>
+                                <li>
+                                    <span class="top__text">Sản phẩm</span>
+                                    <span class="top__text__right">Giá</span>
+                                </li>
+                                @{
+                                    int num = 1;
+                                    foreach(CART_ITEM c in Model.list)
+                                    {
+                                    
+                                    
+                                        <li>@num. @c.TENSANPHAM<span>@string.Format("{0:#,##0} VND", c.THANHTIEN)</span></li>
+                                        num++;
+                                    }
+                                }
+                            </ul>
+                        </div>
+                        <div class="checkout__order__total">
+                            <ul>
+                                <li>Tổng Tiền <span>@string.Format("{0:#,##0} VND", Model.TongThanhTien())</span></li>
+                                <li>Tổng Thanh Toán <span>@string.Format("{0:#,##0} VND", Model.TongThanhTien())</span></li>
+                            </ul>
+                        </div>
+                        <div class="checkout__order__widget">
+                            <label for="o-acc">
+                                Thanh Toán Khi Nhận Hàng
+                                <input type="checkbox" id="o-acc">
+                                <span class="checkmark"></span>
+                            </label>
+                            <p>
+                                Nhận hàng, kiểm tra hàng rồi thanh toán.
+                            </p>
+                            <label for="check-payment">
+                                Thanh Toán Online
+                                <input type="checkbox" id="check-payment">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label for="paypal">
+                                PayPal
+                                <input type="checkbox" id="paypal">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <button type="submit" class="site-btn">ĐẶT HÀNG NGAY</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<!-- Checkout Section End -->
+

@@ -1,0 +1,206 @@
+﻿@model CT2_CNW_DoAnChanGaGoiNem.Models.SANPHAM
+@using CT2_CNW_DoAnChanGaGoiNem.Models;
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    List<string> kt = ViewBag.kt as List<string>;
+    List<LOAI> loai = ViewBag.loai as List<LOAI>;
+    List<THUONGHIEU> th = ViewBag.th as List<THUONGHIEU>;
+    string img = ViewBag.img;
+
+    //tao list thuong hieu
+    List<SelectListItem> listThuongHieu = new List<SelectListItem>();
+    foreach (THUONGHIEU t in th)
+    {
+        listThuongHieu.Add(new SelectListItem
+        {
+            Text = t.TENTHUONGHIEU,
+            Value = t.MATHUONGHIEU
+        });
+    }
+    //tao list loai
+    List<SelectListItem> listLoai = new List<SelectListItem>();
+    foreach (LOAI l in loai)
+    {
+        listLoai.Add(new SelectListItem
+        {
+            Text = l.TENLOAI,
+            Value = l.MALOAI
+        });
+    }
+    //tao list giam gia
+    List<SelectListItem> listGiam = new List<SelectListItem>();
+    List<double> item = new List<double>();
+    item.Add(0.01);
+    item.Add(0.02);
+    item.Add(0.03);
+    item.Add(0.04);
+    item.Add(0.05);
+    item.Add(0.06);
+    item.Add(0.07);
+    item.Add(0.08);
+    item.Add(0.09);
+    item.Add(0.1);
+    item.Add(0.15);
+    item.Add(0.2);
+    item.Add(0.25);
+    item.Add(0.3);
+    item.Add(0.35);
+    item.Add(0.4);
+    item.Add(0.45);
+    item.Add(0.5);
+    listGiam.Add(new SelectListItem
+    {
+        Text = "Không giảm",
+        Value = "0"
+    });
+    foreach (double i in item)
+    {
+        listGiam.Add(new SelectListItem
+        {
+            Text = (i * 100) + " %",
+            Value = i.ToString()
+        });
+    }
+    //TAO List moi or not
+    List<SelectListItem> listmoi = new List<SelectListItem>();
+    listmoi.Add(new SelectListItem
+    {
+        Text = "Sản phẩm mới",
+        Value = "1"
+    });
+    listmoi.Add(new SelectListItem
+    {
+        Text = "Không",
+        Value = "0"
+    });
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 text-center mb-5">
+            <h3 style="border: 1px solid #d8d8d8;padding:5px;border-radius: 10px;">Thêm Sản Phẩm</h3>
+        </div>
+                @using (Html.BeginForm("Create", "AdminMenu", FormMethod.Post, new { enctype = "multipart/form-data", id = "createProForm", @class="col-md-12", name = "createProForm", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.MASANPHAM, new { @class = "control-label col-md-2"})
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(model => model.MASANPHAM, new { @Value = ViewBag.masp, @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.MASANPHAM)
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.TENSANPHAM, new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(model => model.TENSANPHAM, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.TENSANPHAM)
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.MALOAI, new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.DropDownListFor(model => model.MALOAI, listLoai, new { @class = "form-control" })
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.MATHUONGHIEU, new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.DropDownListFor(model => model.THUONGHIEU, listThuongHieu, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.GIAGOC, new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(model => model.GIAGOC, new { @class = "form-control", @type = "number"})
+                                    @Html.ValidationMessageFor(model => model.GIAGOC, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.GIABAN, new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(model => model.GIABAN, new { @class = "form-control", @readonly = "readonly" })
+                                    @Html.ValidationMessageFor(model => model.GIABAN)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.MOI, new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.DropDownListFor(model => model.MOI, listmoi, new { @class = "form-control" })
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.GIAM, new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.DropDownListFor(model => model.GIAM, listGiam, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.SLTON, new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(model => model.SLTON, new { @class = "form-control", @type = "number" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                @Html.LabelFor(model => model.HINHMINHHOA, new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+    
+                                        <img src="@Url.Content("/Content/img/customers/default-avatar.jpg")" id="imgPrev" style="width:200px; height: 200px;" />
+                                    <div class="custom-file">
+                                        <input type="file" id="fileupload" class="custom-file-input" name="fileupload" accept="image/jpeg, image/png" onchange="ShowImagePreview(this,document.getElementById('imgPrev'));" />
+                                        <label class="custom-file-label" for="fileupload">Choose file...</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    <div class="form-group col-md-12">
+
+                                    
+                                        <p>Kich Thuoc</p>
+                                        @{
+                                    int num = 1;
+                                    foreach (string s in kt)
+                                    {
+                                        {
+                                            string size = "size" + num;
+                                            <div class="form-check col-md-6">
+                                                <input type="checkbox" name="@size" id="@size" value="@s" checked="checked" class="form-check-input" />
+                                                <label class="form-check-label" for="@size">
+
+                                                    @s
+                                                </label>
+                                            </div>
+                                        }
+                                        num++;
+                                    }
+}
+                            </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Create" class="btn btn-success" />
+                            </div>
+                        </div>
+            <div class="form-group col-md-6 mt-5">
+                <a href="@Url.Action("Index", "AdminMenu")" role="button" class="btn btn-primary">Back To List</a>
+            </div>
+                }
+    </div>
+</div>
+

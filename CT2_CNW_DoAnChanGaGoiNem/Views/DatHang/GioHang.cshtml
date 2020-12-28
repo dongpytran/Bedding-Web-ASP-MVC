@@ -1,0 +1,134 @@
+﻿@using CT2_CNW_DoAnChanGaGoiNem.Models;
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/_LayoutWeb.cshtml";
+}
+@model ShopCart
+@if (ViewBag.cart != null)
+{
+    <!-- Breadcrumb Begin -->
+    <div class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__links">
+                        <a href="@Url.Action("Index", "KhachHang")"><i class="fa fa-home"></i> Home</a>
+                        <span>Shopping cart</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb End -->
+    <section class="shop-cart spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="shop__cart__table">
+                        <h2>@ViewBag.cart</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+else
+{
+    <form action="/DatHang/EditQuantity" method="post">
+        <!-- Breadcrumb Begin -->
+        <div class="breadcrumb-option">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="breadcrumb__links">
+                            <a href="@Url.Action("Index", "KhachHang")"><i class="fa fa-home"></i> Home</a>
+                            <span>Shopping cart</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Breadcrumb End -->
+        <!-- Shop Cart Section Begin -->
+        <section class="shop-cart spad">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="shop__cart__table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Product</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>Size</th>
+                                        <th>Total</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (CART_ITEM c in Model.list)
+                                    {
+                                        <tr>
+                                            <td class="cart__product__item">
+                                                <img src="/Content/img/products/@c.HINH" alt="" style="width: 80px; height:80px;">
+                                                <div class="cart__product__item__title">
+                                                    <h6>@c.TENSANPHAM</h6>
+                                                    <div class="rating">
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="cart__price">@string.Format("{0:#,##0} VND", c.GIA)</td>
+                                            <td class="cart__quantity">
+                                                <div class="pro-qty">
+                                                    <input type="text" name="txtQuantity" value="@c.SOLUONG" readonly />
+                                                </div>
+                                            </td>
+                                            <td class="cart__size"><p>@c.KICHTHUOC</p></td>
+                                            <td class="cart__total">@string.Format("{0:#,##0} VND", c.THANHTIEN)</td>
+                                            <td class="cart__close"><a href="@Url.Action("DeleteCartItem", "DatHang", new { masp = c.MASANPHAM, kt = c.KICHTHUOC})"><span class="icon_close"></span></a></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="cart__btn">
+                            <p class="update__cart">@Html.ActionLink("Xóa Giỏ Hàng", "ClearCart", "DatHang", new { confirm = true }, new { onclick = "return confirm('Xoa tat ca mat hang trong gio?')" })</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="cart__btn update__btn">
+                            <span class="icon_loading"></span><input class="update__cart" type="submit" role="button" id="btnUpdate" value="UPDATE" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+
+                    </div>
+                    <div class="col-lg-4 offset-lg-2">
+                        <div class="cart__total__procced">
+                            <h6>Cart total</h6>
+                            <ul>
+                                <li>Subtotal <span>@string.Format("{0:#,##0} VND", Model.TongThanhTien())</span></li>
+                                <li>Total <span>@string.Format("{0:#,##0} VND", Model.TongThanhTien())</span></li>
+                            </ul>
+                            <a href="@Url.Action("ThanhToan", "DatHang")" class="primary-btn">Thanh Toán</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Shop Cart Section End -->
+    </form>
+}
+
